@@ -16,7 +16,7 @@ func _slide(params, block):
 	var tpos = vm.get_object(params[1]).get_interact_pos()
 	var speed = 0
 	if params.size() > 2:
-		speed = real(params[2])
+		speed = float(params[2])
 	if block:
 		current_context.waiting = true
 		vm.get_object(params[0]).slide(tpos, speed, current_context)
@@ -33,7 +33,7 @@ func _walk(params, block):
 	var tpos = vm.get_object(params[1]).get_interact_pos()
 	var speed = 0
 	if params.size() > 2:
-		speed = real(params[2])
+		speed = float(params[2])
 	if block:
 		current_context.waiting = true
 		vm.get_object(params[0]).walk(tpos, speed, current_context)
@@ -402,6 +402,3 @@ func resume(context):
 			return vm.state_jump
 	context.ip = 0
 	return vm.state_return
-
-func set_vm(p_vm):
-	vm = p_vm
